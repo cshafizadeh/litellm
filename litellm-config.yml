@@ -1,0 +1,64 @@
+model_list:
+  # OpenAI
+  - model_name: gpt-4-turbo
+    litellm_params:
+      model: gpt-4-turbo
+      api_key: "os.environ/OPENAI_API_KEY"
+ 
+  - model_name: old-gpt-4-turbo-preview
+    litellm_params:
+      model: gpt-4-turbo-preview
+      api_key: "os.environ/OPENAI_API_KEY"
+ 
+  - model_name: gpt-3.5-turbo
+    litellm_params:
+      model: gpt-3.5-turbo
+      api_key: "os.environ/OPENAI_API_KEY"
+ 
+  - model_name: gpt-4
+    litellm_params:
+      model: gpt-4
+      api_key: "os.environ/OPENAI_API_KEY"
+ 
+  - model_name: gpt-4o
+    litellm_params:
+      model: gpt-4o
+      api_key: "os.environ/OPENAI_API_KEY"
+ 
+  - model_name: gpt-3.5-turbo-16k
+    litellm_params:
+      model: gpt-3.5-turbo-16k
+      api_key: "os.environ/OPENAI_API_KEY"
+ 
+  - model_name: gpt-4-32k
+    litellm_params:
+      model: gpt-4-32k
+      api_key: "os.environ/OPENAI_API_KEY"
+ 
+  - model_name: gpt-4-vision-preview
+    litellm_params:
+      model: gpt-4-vision-preview
+      api_key: "os.environ/OPENAI_API_KEY"
+
+# NOTE: It may be a good idea to comment out "success_callback", "cache", "cache_params" (both lines under) when you first start until this works!
+litellm_settings:
+  mcp_aliases:
+    "deepwiki": "deepwiki_mcp_server"
+    "playwright": "playwright_mcp_server"
+
+
+general_settings:
+  master_key: sk-1234
+
+mcp_servers:
+  # Public HTTP MCP server for testing
+  deepwiki_mcp_server:
+    url: "https://mcp.deepwiki.com/mcp"
+    transport: "http"
+    description: "DeepWiki MCP Server (Public Test)"
+    # No authentication required for testing
+  # Intel GAAS server - commented out for testing
+  playwright_mcp_server:
+    url: "https://gaas-toolhive-sbx.intel.com/playwright/mcp"
+    transport: "http"
+    description: "Intel GAAS Playwright MCP Server"
